@@ -33,51 +33,11 @@ function ImagePanel({
   );
 }
 
-function CopyControls({
-  leftLabel,
-  rightLabel,
-  canCopyRight,
-  canCopyLeft,
-  onCopyRight,
-  onCopyLeft,
-}: {
-  leftLabel: string;
-  rightLabel: string;
-  canCopyRight: boolean;
-  canCopyLeft: boolean;
-  onCopyRight: () => void;
-  onCopyLeft: () => void;
-}) {
-  return (
-    <div className="controls">
-      <button
-        className="arrow-btn"
-        onClick={onCopyRight}
-        disabled={!canCopyRight}
-        title={`Copy ${leftLabel} → ${rightLabel}`}
-      >
-        ›
-      </button>
-      <div className="arrow-divider" />
-      <button
-        className="arrow-btn"
-        onClick={onCopyLeft}
-        disabled={!canCopyLeft}
-        title={`Copy ${rightLabel} → ${leftLabel}`}
-      >
-        ‹
-      </button>
-    </div>
-  );
-}
-
 export default function App() {
   const [imageA, setImageA] = useState<string | null>(null);
   const [imageB, setImageB] = useState<string | null>(null);
-  const [imageC, setImageC] = useState<string | null>(null);
   const inputARef = useRef<HTMLInputElement>(null);
   const inputBRef = useRef<HTMLInputElement>(null);
-  const inputCRef = useRef<HTMLInputElement>(null);
 
   function loadFile(file: File, setter: (src: string) => void) {
     const reader = new FileReader();
@@ -93,6 +53,14 @@ export default function App() {
     e.target.value = "";
   }
 
+  function copyAtoB() {
+    if (imageA) setImageB(imageA);
+  }
+
+  function copyBtoA() {
+    if (imageB) setImageA(imageB);
+  }
+
   return (
     <div className="app">
       <h1>Image Viewer</h1>
@@ -105,34 +73,30 @@ export default function App() {
           onClick={() => inputARef.current?.click()}
         />
 
-        <CopyControls
-          leftLabel="Image 1"
-          rightLabel="Image 2"
-          canCopyRight={!!imageA}
-          canCopyLeft={!!imageB}
-          onCopyRight={() => imageA && setImageB(imageA)}
-          onCopyLeft={() => imageB && setImageA(imageB)}
-        />
+        <div className="controls">
+          <button
+            className="arrow-btn"
+            onClick={copyAtoB}
+            disabled={!imageA}
+            title="Copy Image 1 → Image 2"
+          >
+            ›
+          </button>
+          <div className="arrow-divider" />
+          <button
+            className="arrow-btn"
+            onClick={copyBtoA}
+            disabled={!imageB}
+            title="Copy Image 2 → Image 1"
+          >
+            ‹
+          </button>
+        </div>
 
         <ImagePanel
           image={imageB}
           label="Image 2"
           onClick={() => inputBRef.current?.click()}
-        />
-
-        <CopyControls
-          leftLabel="Image 2"
-          rightLabel="Image 3"
-          canCopyRight={!!imageB}
-          canCopyLeft={!!imageC}
-          onCopyRight={() => imageB && setImageC(imageB)}
-          onCopyLeft={() => imageC && setImageB(imageC)}
-        />
-
-        <ImagePanel
-          image={imageC}
-          label="Image 3"
-          onClick={() => inputCRef.current?.click()}
         />
       </div>
 
@@ -149,13 +113,6 @@ export default function App() {
         accept="image/*"
         style={{ display: "none" }}
         onChange={(e) => handleFileChange(e, setImageB)}
-      />
-      <input
-        ref={inputCRef}
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        onChange={(e) => handleFileChange(e, setImageC)}
       />
     </div>
   );
