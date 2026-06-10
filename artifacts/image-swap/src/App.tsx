@@ -33,87 +33,127 @@ function ImagePanel({
   );
 }
 
-export default function App() {
-  const [imageA, setImageA] = useState<string | null>(null);
-  const [imageB, setImageB] = useState<string | null>(null);
-  const inputARef = useRef<HTMLInputElement>(null);
-  const inputBRef = useRef<HTMLInputElement>(null);
+function CopyControls({
+  onLeft,
+  onRight,
+  disableLeft,
+  disableRight,
+}: {
+  onLeft: () => void;
+  onRight: () => void;
+  disableLeft: boolean;
+  disableRight: boolean;
+}) {
+  return (
+    <div className="controls">
+      <button
+        className="arrow-btn"
+        onClick={onRight}
+        disabled={disableRight}
+        title="Copy right →"
+      >
+        ›
+      </button>
+      <div className="arrow-divider" />
+      <button
+        className="arrow-btn"
+        onClick={onLeft}
+        disabled={disableLeft}
+        title="Copy left ←"
+      >
+        ‹
+      </button>
+    </div>
+  );
+}
 
-  function loadFile(file: File, setter: (src: string) => void) {
+export default function App() {
+  const [images, setImages] = useState<[string | null, string | null, string | null]>([null, null, null]);
+  const inputRefs = [
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+  ];
+
+  function loadFile(file: File, index: number) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      if (e.target?.result) setter(e.target.result as string);
+      if (e.target?.result) {
+        setImages((prev) => {
+          const next = [...prev] as [string | null, string | null, string | null];
+          next[index] = e.target!.result as string;
+          return next;
+        });
+      }
     };
     reader.readAsDataURL(file);
   }
 
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>, setter: (src: string) => void) {
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>, index: number) {
     const file = e.target.files?.[0];
-    if (file) loadFile(file, setter);
+    if (file) loadFile(file, index);
     e.target.value = "";
   }
 
-  function copyAtoB() {
-    if (imageA) setImageB(imageA);
-  }
-
-  function copyBtoA() {
-    if (imageB) setImageA(imageB);
+  function copy(from: number, to: number) {
+    if (images[from]) {
+      setImages((prev) => {
+        const next = [...prev] as [string | null, string | null, string | null];
+        next[to] = prev[from];
+        return next;
+      });
+    }
   }
 
   return (
     <div className="app">
       <h1>Image Viewer</h1>
-      <p className="subtitle">Click an image panel to load a file. Use the arrows to copy between panels.</p>
+      <p className="subtitle">Click a panel to load an image. Use the arrows to copy between panels.</p>
 
-      <div className="workspace">
+      <div className="workspace three-panels">
         <ImagePanel
-          image={imageA}
+          image={images[0]}
           label="Image 1"
-          onClick={() => inputARef.current?.click()}
+          onClick={() => inputRefs[0].current?.click()}
         />
 
-        <div className="controls">
-          <button
-            className="arrow-btn"
-            onClick={copyAtoB}
-            disabled={!imageA}
-            title="Copy Image 1 → Image 2"
-          >
-            ›
-          </button>
-          <div className="arrow-divider" />
-          <button
-            className="arrow-btn"
-            onClick={copyBtoA}
-            disabled={!imageB}
-            title="Copy Image 2 → Image 1"
-          >
-            ‹
-          </button>
-        </div>
+        <CopyControls
+          onRight={() => copy(0, 1)}
+          onLeft={() => copy(1, 0)}
+          disableRight={!images[0]}
+          disableLeft={!images[1]}
+        />
 
         <ImagePanel
-          image={imageB}
+          image={images[1]}
           label="Image 2"
-          onClick={() => inputBRef.current?.click()}
+          onClick={() => inputRefs[1].current?.click()}
+        />
+
+        <CopyControls
+          onRight={() => copy(1, 2)}
+          onLeft={() => copy(2, 1)}
+          disableRight={!images[1]}
+          disableLeft={!images[2]}
+        />
+
+        <ImagePanel
+          image={images[2]}
+          label="Image 3"
+          onClick={() => inputRefs[2].current?.click()}
         />
       </div>
 
-      <input
-        ref={inputARef}
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        onChange={(e) => handleFileChange(e, setImageA)}
-      />
-      <input
-        ref={inputBRef}
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        onChange={(e) => handleFileChange(e, setImageB)}
-      />
+      {inputRefs.map((ref, i) => (
+        <input
+          key={i}
+          ref={ref}
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={(e) => handleFileChange(e, i)}
+        />
+      ))}
     </div>
   );
 }

@@ -349,7 +349,15 @@
   background: hsl(var(--border));
 }
 
-@media (max-width: 600px) {
+.three-panels {
+  max-width: 1200px;
+}
+
+.three-panels .image-panel {
+  min-width: 0;
+}
+
+@media (max-width: 800px) {
   .workspace {
     flex-direction: column;
   }
