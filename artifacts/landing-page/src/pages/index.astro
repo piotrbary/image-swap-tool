@@ -116,7 +116,7 @@ const starPath =
             style="font:var(--text-lg); line-height:1.55; color:hsl(var(--muted-foreground)); margin:18px 0 0; max-width:480px;"
           >
             Wczytaj zdjęcie do dowolnego panelu i przenoś je między nimi jednym
-            kliknięciem. Bez kont, bez instalacji — po prostu otwórz i porównuj.
+            kliknięciem. Bez kont, bez instalacji — po prostu otwórz i porównaj.
           </p>
           <div style="display:flex; align-items:center; gap:14px; margin-top:32px;">
             <Button size="lg" data-action="pickA1">Wypróbuj teraz</Button>
@@ -128,17 +128,9 @@ const starPath =
 
         <div>
           <div style="display:flex; align-items:center; gap:16px;">
-            <ImagePanel
-              panel="a1"
-              label="Obraz 1"
-              class="hero-panel"
-            />
+            <ImagePanel panel="a1" label="Obraz 1" class="hero-panel" />
             <SwapControl />
-            <ImagePanel
-              panel="a2"
-              label="Obraz 2"
-              class="hero-panel"
-            />
+            <ImagePanel panel="a2" label="Obraz 2" class="hero-panel" />
           </div>
           <div
             style="margin-top:24px; padding-top:20px; border-top:1px dashed hsl(var(--border));"
@@ -338,7 +330,6 @@ const starPath =
 </Layout>
 
 <style>
-  /* Hero demo panels keep the prototype's flex sizing. */
   .hero-panel {
     flex: 1;
     max-width: 260px;
@@ -361,10 +352,6 @@ const starPath =
 </style>
 
 <script>
-  // ── Image Swap interactivity ────────────────────────────────────
-  // Mirrors the prototype's DCLogic: each panel loads a file via a
-  // hidden <input>, and the SwapControl copies the data URL between
-  // the two panels. State lives in the DOM (the panel <img> src).
   const state: Record<string, string | null> = { a1: null, a2: null };
 
   const input = document.createElement("input");
@@ -437,7 +424,6 @@ const starPath =
     input.value = "";
   });
 
-  // Panels: click (or keyboard) loads an image into that slot.
   document.querySelectorAll<HTMLElement>("[data-panel]").forEach((panel) => {
     const key = panel.dataset.panel!;
     panel.addEventListener("click", () => pick(key));
@@ -449,17 +435,14 @@ const starPath =
     });
   });
 
-  // data-action buttons (hero / nav / footer CTAs + "coming soon").
   document.querySelectorAll<HTMLElement>("[data-action]").forEach((el) => {
     const action = el.dataset.action!;
     el.addEventListener("click", () => {
       if (action === "pickA1") pick("a1");
       else if (action === "pickA2") pick("a2");
-      // "soon" → no-op (feature not wired up yet)
     });
   });
 
-  // SwapControl arrows.
   document
     .querySelector('[data-swap="forward"]')
     ?.addEventListener("click", () => copy("a1", "a2"));
