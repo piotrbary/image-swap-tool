@@ -1,0 +1,137 @@
+/* ─────────────────────────────────────────────────────────────
+   Colors — Image Swap Design System
+   shadcn/ui "new-york" palette: blue primary, cool-slate neutrals.
+   Base tokens are stored as HSL channel triplets (H S% L%) so they
+   compose with hsl(var(--token) / <alpha>). Convenience --color-*
+   aliases wrap them in hsl() for direct use.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Surfaces ── */
+  --background: 210 20% 98%; /* @kind color */
+  --foreground: 220 15% 15%; /* @kind color */
+  --card: 0 0% 100%; /* @kind color */
+  --card-foreground: 220 15% 15%; /* @kind color */
+  --card-border: 220 13% 90%; /* @kind color */
+  --popover: 0 0% 100%; /* @kind color */
+  --popover-foreground: 220 15% 15%; /* @kind color */
+  --popover-border: 220 13% 88%; /* @kind color */
+
+  /* ── Brand / Primary ── */
+  --primary: 221 83% 53%; /* @kind color */
+  --primary-foreground: 0 0% 100%; /* @kind color */
+
+  /* ── Neutrals ── */
+  --secondary: 210 20% 93%; /* @kind color */
+  --secondary-foreground: 220 15% 20%; /* @kind color */
+  --muted: 210 20% 95%; /* @kind color */
+  --muted-foreground: 220 10% 50%; /* @kind color */
+  --accent: 210 20% 93%; /* @kind color */
+  --accent-foreground: 220 15% 20%; /* @kind color */
+
+  /* ── Lines & fields ── */
+  --border: 220 13% 88%; /* @kind color */
+  --input: 220 13% 88%; /* @kind color */
+  --ring: 221 83% 53%; /* @kind color */
+
+  /* ── Semantic ── */
+  --destructive: 0 84% 60%; /* @kind color */
+  --destructive-foreground: 0 0% 100%; /* @kind color */
+  --success: 160 60% 40%; /* @kind color */
+  --warning: 30 90% 50%; /* @kind color */
+
+  /* ── Sidebar ── */
+  --sidebar: 210 20% 96%; /* @kind color */
+  --sidebar-foreground: 220 15% 20%; /* @kind color */
+  --sidebar-border: 220 13% 88%; /* @kind color */
+  --sidebar-primary: 221 83% 53%; /* @kind color */
+  --sidebar-primary-foreground: 0 0% 100%; /* @kind color */
+  --sidebar-accent: 210 20% 93%; /* @kind color */
+  --sidebar-accent-foreground: 220 15% 20%; /* @kind color */
+  --sidebar-ring: 221 83% 53%; /* @kind color */
+
+  /* ── Data viz ── */
+  --chart-1: 221 83% 53%; /* @kind color */ /* blue */
+  --chart-2: 160 60% 45%; /* @kind color */ /* teal-green */
+  --chart-3: 30 80% 55%; /* @kind color */ /* orange */
+  --chart-4: 280 65% 60%; /* @kind color */ /* purple */
+  --chart-5: 340 75% 55%; /* @kind color */ /* rose */
+
+  /* ── Derived opaque button/badge borders (slightly darker fills) ── */
+  --primary-border: 221 83% 45%; /* @kind color */
+  --secondary-border: 220 13% 84%; /* @kind color */
+  --destructive-border: 0 84% 52%; /* @kind color */
+
+  /* ── Convenience hsl() aliases ── */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Dark mode — apply via class="dark" on a wrapping element.
+   ───────────────────────────────────────────────────────────── */
+.dark {
+  --background: 222 47% 11%; /* @kind color */
+  --foreground: 210 40% 95%; /* @kind color */
+  --card: 222 47% 14%; /* @kind color */
+  --card-foreground: 210 40% 95%; /* @kind color */
+  --card-border: 217 33% 22%; /* @kind color */
+  --popover: 222 47% 14%; /* @kind color */
+  --popover-foreground: 210 40% 95%; /* @kind color */
+  --popover-border: 217 33% 22%; /* @kind color */
+
+  --primary: 217 91% 60%; /* @kind color */
+  --primary-foreground: 222 47% 11%; /* @kind color */
+
+  --secondary: 217 33% 18%; /* @kind color */
+  --secondary-foreground: 210 40% 90%; /* @kind color */
+  --muted: 217 33% 18%; /* @kind color */
+  --muted-foreground: 215 20% 55%; /* @kind color */
+  --accent: 217 33% 18%; /* @kind color */
+  --accent-foreground: 210 40% 90%; /* @kind color */
+
+  --border: 217 33% 22%; /* @kind color */
+  --input: 217 33% 22%; /* @kind color */
+  --ring: 217 91% 60%; /* @kind color */
+
+  --destructive: 0 62% 50%; /* @kind color */
+  --destructive-foreground: 0 0% 100%; /* @kind color */
+  --success: 160 55% 45%; /* @kind color */
+  --warning: 30 85% 55%; /* @kind color */
+
+  --sidebar: 222 47% 9%; /* @kind color */
+  --sidebar-foreground: 210 40% 90%; /* @kind color */
+  --sidebar-border: 217 33% 20%; /* @kind color */
+  --sidebar-primary: 217 91% 60%; /* @kind color */
+  --sidebar-primary-foreground: 222 47% 11%; /* @kind color */
+  --sidebar-accent: 217 33% 18%; /* @kind color */
+  --sidebar-accent-foreground: 210 40% 90%; /* @kind color */
+  --sidebar-ring: 217 91% 60%; /* @kind color */
+
+  --chart-1: 217 91% 60%; /* @kind color */
+  --chart-2: 160 60% 50%; /* @kind color */
+  --chart-3: 30 80% 60%; /* @kind color */
+  --chart-4: 280 65% 65%; /* @kind color */
+  --chart-5: 340 75% 60%; /* @kind color */
+
+  --primary-border: 217 91% 52%; /* @kind color */
+  --secondary-border: 217 33% 24%; /* @kind color */
+  --destructive-border: 0 62% 42%; /* @kind color */
+}

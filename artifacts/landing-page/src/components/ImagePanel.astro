@@ -1,0 +1,39 @@
+---
+/**
+ * ImagePanel (DemoPanel) — a click-to-load image slot. Renders the empty
+ * placeholder by default; the page script swaps in the <img>, the label
+ * pill and the solid border once an image is chosen for this panel.
+ */
+interface Props {
+  panel: string;
+  label: string;
+  class?: string;
+}
+
+const { panel, label, class: className = "" } = Astro.props;
+---
+
+<div
+  class={`is-panel ${className}`.trim()}
+  data-panel={panel}
+  role="button"
+  tabindex="0"
+  title="Kliknij, aby wczytać obraz"
+>
+  <img class="is-panel__img" data-panel-img alt={label} hidden />
+  <div class="is-panel__placeholder" data-panel-placeholder>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+      <polyline points="21 15 16 10 5 21"></polyline>
+    </svg>
+    <strong>Wczytaj obraz</strong>
+    <small>Kliknij, aby wybrać</small>
+  </div>
+  <div class="is-panel__label" data-panel-label hidden>{label}</div>
+</div>

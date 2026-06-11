@@ -1,0 +1,471 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Badge from "../components/Badge.astro";
+import SwapControl from "../components/SwapControl.astro";
+import ImagePanel from "../components/ImagePanel.astro";
+
+const testimonials = [
+  {
+    quote:
+      "Zestawiam wersje grafiki w sekundę i od razu wiem, która jest lepsza. Zero zbędnych kroków.",
+    initials: "MK",
+    chart: "1",
+    name: "Marta K.",
+    role: "Projektantka UI",
+  },
+  {
+    quote:
+      "Wczytuję dwa zrzuty ekranu, kopiuję strzałką i mam porównanie. Używam codziennie do QA.",
+    initials: "TP",
+    chart: "2",
+    name: "Tomek P.",
+    role: "Front-end developer",
+  },
+  {
+    quote:
+      "Nic nie instaluję, otwieram w przeglądarce i działa. Dokładnie tak proste, jak powinno być.",
+    initials: "AW",
+    chart: "4",
+    name: "Ania W.",
+    role: "Fotografka",
+  },
+];
+
+const logos = ["Pixelary", "Studio Nórd", "Frontda", "Kowalski Foto", "DevHouse"];
+const starPath =
+  "M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z";
+---
+
+<Layout>
+  <div
+    style="min-height:100vh; background:hsl(var(--background)); font-family:var(--font-sans); color:hsl(var(--foreground));"
+  >
+    <!-- ═══ HERO ═══ -->
+    <header style="display:flex; flex-direction:column;">
+      <!-- Nawigacja -->
+      <div
+        class="nav"
+        style="display:flex; align-items:center; height:64px; padding:0 32px; border-bottom:1px solid hsl(var(--border)); background:hsl(var(--card));"
+      >
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div
+            style="width:30px; height:30px; border-radius:8px; background:hsl(var(--primary)); display:flex; align-items:center; justify-content:center;"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 48 48"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 19 H31"></path>
+              <path d="M27 15 L31 19 L27 23"></path>
+              <path d="M33 29 H17"></path>
+              <path d="M21 33 L17 29 L21 25"></path>
+            </svg>
+          </div>
+          <span style="font-size:17px; font-weight:700; letter-spacing:-0.02em;"
+            >Image<span style="color:hsl(var(--primary));"> Swap</span></span
+          >
+        </div>
+        <div
+          class="nav__links"
+          style="margin-left:auto; display:flex; align-items:center; gap:22px;"
+        >
+          <a
+            href="#opinie"
+            style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); text-decoration:none;"
+            >Jak to działa</a
+          >
+          <a
+            href="#opinie"
+            style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); text-decoration:none;"
+            >Opinie</a
+          >
+          <Button size="sm" data-action="pickA1">Wypróbuj</Button>
+        </div>
+      </div>
+
+      <!-- Hero content -->
+      <div
+        class="hero"
+        style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:56px 48px; max-width:1280px; margin:0 auto; width:100%;"
+      >
+        <div>
+          <div
+            style="display:inline-flex; align-items:center; gap:8px; padding:5px 12px; border-radius:9999px; background:hsl(var(--primary) / 0.10); margin-bottom:20px;"
+          >
+            <span
+              style="width:6px; height:6px; border-radius:9999px; background:hsl(var(--primary));"
+            ></span>
+            <span
+              style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); color:hsl(var(--primary));"
+              >Działa w przeglądarce · bez rejestracji</span
+            >
+          </div>
+          <h1
+            style="font:var(--font-weight-bold) 48px/1.05 var(--font-sans); letter-spacing:-0.03em; margin:0;"
+          >
+            Porównuj obrazy<br />obok siebie.
+          </h1>
+          <p
+            style="font:var(--text-lg); line-height:1.55; color:hsl(var(--muted-foreground)); margin:18px 0 0; max-width:480px;"
+          >
+            Wczytaj zdjęcie do dowolnego panelu i przenoś je między nimi jednym
+            kliknięciem. Bez kont, bez instalacji — po prostu otwórz i porównuj.
+          </p>
+          <div style="display:flex; align-items:center; gap:14px; margin-top:32px;">
+            <Button size="lg" data-action="pickA1">Wypróbuj teraz</Button>
+            <Button variant="ghost" size="lg" data-action="pickA2"
+              >Wczytaj drugi obraz</Button
+            >
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <ImagePanel
+              panel="a1"
+              label="Obraz 1"
+              class="hero-panel"
+            />
+            <SwapControl />
+            <ImagePanel
+              panel="a2"
+              label="Obraz 2"
+              class="hero-panel"
+            />
+          </div>
+          <div
+            style="margin-top:24px; padding-top:20px; border-top:1px dashed hsl(var(--border));"
+          >
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <Badge variant="secondary">Wkrótce</Badge>
+              <Button variant="outline" size="sm" data-action="soon"
+                >✨ Ulepsz z AI</Button
+              >
+              <Button variant="outline" size="sm" data-action="soon"
+                >Usuń tło</Button
+              >
+              <span
+                style="width:1px; height:18px; background:hsl(var(--border));"
+              ></span>
+              <Button variant="outline" size="sm" data-action="soon">Zapisz</Button>
+              <Button variant="outline" size="sm" data-action="soon">Wczytaj</Button>
+            </div>
+            <p
+              style="font:var(--text-caption); color:hsl(var(--muted-foreground)); margin:12px 0 0;"
+            >
+              Te akcje podepniemy później — transformacje AI oraz zapis i
+              wczytywanie projektu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ DOWÓD SPOŁECZNY ═══ -->
+    <section
+      id="opinie"
+      style="background:hsl(var(--card)); border-top:1px solid hsl(var(--border)); padding:56px 32px;"
+    >
+      <div style="max-width:1280px; margin:0 auto;">
+        <div
+          style="padding:36px 0; border-bottom:1px solid hsl(var(--border)); text-align:center;"
+        >
+          <p
+            style="font:var(--text-caption); letter-spacing:0.08em; text-transform:uppercase; color:hsl(var(--muted-foreground)); margin:0 0 18px;"
+          >
+            Używane w codziennej pracy zespołów produktowych
+          </p>
+          <div
+            style="display:flex; align-items:center; justify-content:center; gap:44px; flex-wrap:wrap; opacity:0.55;"
+          >
+            {
+              logos.map((logo) => (
+                <span style="font:var(--font-weight-bold) 19px/1 var(--font-sans); letter-spacing:-0.02em;">
+                  {logo}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div style="padding:56px 0;">
+          <div style="text-align:center; margin-bottom:40px;">
+            <h2
+              style="font:var(--font-weight-bold) 34px/1.15 var(--font-sans); letter-spacing:-0.02em; margin:0;"
+            >
+              Prosto, szybko, bez tarcia
+            </h2>
+            <p
+              style="font:var(--text-lg); color:hsl(var(--muted-foreground)); margin:12px auto 0; max-width:520px;"
+            >
+              Tak o pracy z obrazami mówią osoby, które korzystają z Image Swap
+              na co dzień.
+            </p>
+          </div>
+          <div
+            class="testimonials"
+            style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;"
+          >
+            {
+              testimonials.map((t) => (
+                <div style="background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:14px; box-shadow:var(--shadow-sm); padding:28px;">
+                  <div style="display:flex; gap:3px; margin-bottom:14px;">
+                    {
+                      Array.from({ length: 5 }).map(() => (
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="hsl(var(--warning))"
+                          stroke="none"
+                        >
+                          <path d={starPath} />
+                        </svg>
+                      ))
+                    }
+                  </div>
+                  <p style="font:var(--text-base); line-height:1.6; margin:0;">
+                    „{t.quote}"
+                  </p>
+                  <div style="display:flex; align-items:center; gap:12px; margin-top:22px;">
+                    <div
+                      style={`width:38px; height:38px; border-radius:9999px; background:hsl(var(--chart-${t.chart}) / 0.15); color:hsl(var(--chart-${t.chart})); display:flex; align-items:center; justify-content:center; font:var(--font-weight-semibold) 14px/1 var(--font-sans);`}
+                    >
+                      {t.initials}
+                    </div>
+                    <div>
+                      <div style="font:var(--font-weight-semibold) 14px/1.2 var(--font-sans);">
+                        {t.name}
+                      </div>
+                      <div style="font:var(--text-caption); color:hsl(var(--muted-foreground));">
+                        {t.role}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER CTA ═══ -->
+    <footer style="background:hsl(var(--primary)); padding:64px 32px;">
+      <div style="max-width:1280px; margin:0 auto; text-align:center;">
+        <h2
+          style="font:var(--font-weight-bold) 38px/1.1 var(--font-sans); letter-spacing:-0.02em; margin:0; color:#fff;"
+        >
+          Gotowy, żeby porównać swoje obrazy?
+        </h2>
+        <p
+          style="font:var(--text-lg); color:hsl(0 0% 100% / 0.85); margin:14px auto 0; max-width:520px;"
+        >
+          Otwórz Image Swap i wczytaj pierwszy obraz — zajmie Ci to mniej niż
+          minutę.
+        </p>
+        <div
+          style="display:flex; align-items:center; justify-content:center; gap:14px; margin-top:32px; flex-wrap:wrap;"
+        >
+          <Button variant="secondary" size="lg" data-action="pickA1"
+            >Wypróbuj teraz</Button
+          >
+          <span style="font:var(--text-body-sm); color:hsl(0 0% 100% / 0.8);"
+            >Działa w przeglądarce · bez rejestracji</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══ FOOTER LINKI ═══ -->
+    <div
+      style="padding:26px 32px; border-top:1px solid hsl(var(--primary) / 0.15); background:hsl(var(--primary) / 0.04);"
+    >
+      <div
+        style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; max-width:1280px; margin:0 auto; width:100%;"
+      >
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div
+            style="width:26px; height:26px; border-radius:7px; background:hsl(var(--primary)); display:flex; align-items:center; justify-content:center;"
+          >
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 48 48"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 19 H31"></path>
+              <path d="M27 15 L31 19 L27 23"></path>
+              <path d="M33 29 H17"></path>
+              <path d="M21 33 L17 29 L21 25"></path>
+            </svg>
+          </div>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground));"
+            >© 2026 Image Swap</span
+          >
+        </div>
+        <div style="display:flex; align-items:center; gap:24px;">
+          <a
+            href="#"
+            style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); text-decoration:none;"
+            >Prywatność</a
+          >
+          <a
+            href="#"
+            style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); text-decoration:none;"
+            >GitHub</a
+          >
+          <a
+            href="#"
+            style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); text-decoration:none;"
+            >Kontakt</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Hero demo panels keep the prototype's flex sizing. */
+  .hero-panel {
+    flex: 1;
+    max-width: 260px;
+  }
+
+  @media (max-width: 920px) {
+    .hero {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .nav__links a {
+      display: none;
+    }
+    .testimonials {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+<script>
+  // ── Image Swap interactivity ────────────────────────────────────
+  // Mirrors the prototype's DCLogic: each panel loads a file via a
+  // hidden <input>, and the SwapControl copies the data URL between
+  // the two panels. State lives in the DOM (the panel <img> src).
+  const state: Record<string, string | null> = { a1: null, a2: null };
+
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = "image/*";
+  input.style.display = "none";
+  document.body.appendChild(input);
+  let target: string | null = null;
+
+  function panelEl(key: string) {
+    return document.querySelector<HTMLElement>(`[data-panel="${key}"]`);
+  }
+
+  function render(key: string) {
+    const panel = panelEl(key);
+    if (!panel) return;
+    const img = panel.querySelector<HTMLImageElement>("[data-panel-img]");
+    const placeholder = panel.querySelector<HTMLElement>(
+      "[data-panel-placeholder]",
+    );
+    const label = panel.querySelector<HTMLElement>("[data-panel-label]");
+    const value = state[key];
+    if (img) {
+      if (value) {
+        img.src = value;
+        img.hidden = false;
+      } else {
+        img.removeAttribute("src");
+        img.hidden = true;
+      }
+    }
+    if (placeholder) placeholder.hidden = !!value;
+    if (label) label.hidden = !value;
+    panel.classList.toggle("is-panel--filled", !!value);
+    updateSwap();
+  }
+
+  function updateSwap() {
+    const forward = document.querySelector<HTMLButtonElement>(
+      '[data-swap="forward"]',
+    );
+    const back = document.querySelector<HTMLButtonElement>('[data-swap="back"]');
+    if (forward) forward.disabled = !state.a1;
+    if (back) back.disabled = !state.a2;
+  }
+
+  function pick(key: string) {
+    target = key;
+    input.click();
+  }
+
+  function copy(from: string, to: string) {
+    const value = state[from];
+    if (!value) return;
+    state[to] = value;
+    render(to);
+  }
+
+  input.addEventListener("change", () => {
+    const file = input.files && input.files[0];
+    if (file && target) {
+      const key = target;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        state[key] = (ev.target?.result as string) ?? null;
+        render(key);
+      };
+      reader.readAsDataURL(file);
+    }
+    input.value = "";
+  });
+
+  // Panels: click (or keyboard) loads an image into that slot.
+  document.querySelectorAll<HTMLElement>("[data-panel]").forEach((panel) => {
+    const key = panel.dataset.panel!;
+    panel.addEventListener("click", () => pick(key));
+    panel.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        pick(key);
+      }
+    });
+  });
+
+  // data-action buttons (hero / nav / footer CTAs + "coming soon").
+  document.querySelectorAll<HTMLElement>("[data-action]").forEach((el) => {
+    const action = el.dataset.action!;
+    el.addEventListener("click", () => {
+      if (action === "pickA1") pick("a1");
+      else if (action === "pickA2") pick("a2");
+      // "soon" → no-op (feature not wired up yet)
+    });
+  });
+
+  // SwapControl arrows.
+  document
+    .querySelector('[data-swap="forward"]')
+    ?.addEventListener("click", () => copy("a1", "a2"));
+  document
+    .querySelector('[data-swap="back"]')
+    ?.addEventListener("click", () => copy("a2", "a1"));
+
+  updateSwap();
+</script>

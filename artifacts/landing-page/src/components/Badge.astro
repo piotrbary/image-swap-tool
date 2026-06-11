@@ -1,0 +1,13 @@
+---
+/** Badge — compact status / category label. */
+interface Props {
+  variant?: "primary" | "secondary" | "destructive" | "success" | "outline";
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { variant = "primary", class: className = "", ...rest } = Astro.props;
+const cls = `is-badge is-badge--${variant} ${className}`.trim();
+---
+
+<span class={cls} {...rest}><slot /></span>
