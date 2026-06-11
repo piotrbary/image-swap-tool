@@ -1,0 +1,27 @@
+/* ─────────────────────────────────────────────────────────────
+   Spacing — Image Swap Design System
+   4px base unit (Tailwind-style scale). The product workspace uses
+   gap-6 (1.5rem) between panels and 2rem page padding.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --spacing: 0.25rem;   /* 4px base unit */
+
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px — panel gap */
+  --space-8: 2rem;      /* 32px — page padding */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px — section rhythm */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Layout */
+  --container-max: 900px;   /* image-swap workspace max width */
+  --container-wide: 1200px; /* marketing / docs */
+}

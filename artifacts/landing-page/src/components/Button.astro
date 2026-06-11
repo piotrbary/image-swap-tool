@@ -1,0 +1,33 @@
+---
+/**
+ * Button — the primary interactive control of the Image Swap system.
+ * Variants: primary (default), secondary, outline, ghost, destructive, link.
+ * Sizes: default, sm, lg, icon.
+ *
+ * Any extra attributes (id, data-*, title, disabled…) are forwarded to
+ * the underlying <button>, which is how the page wires up click behaviour.
+ */
+interface Props {
+  variant?:
+    | "primary"
+    | "secondary"
+    | "outline"
+    | "ghost"
+    | "destructive"
+    | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  variant = "primary",
+  size = "default",
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const cls = `is-btn is-btn--${variant} is-btn--${size} ${className}`.trim();
+---
+
+<button type="button" class={cls} {...rest}><slot /></button>

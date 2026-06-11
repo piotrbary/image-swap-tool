@@ -1,0 +1,34 @@
+---
+import "../styles/tokens.css";
+import "../styles/components.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Image Swap",
+  description = "Porównuj obrazy obok siebie. Wczytaj zdjęcie do dowolnego panelu i przenoś je między nimi jednym kliknięciem — bez kont, bez instalacji.",
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

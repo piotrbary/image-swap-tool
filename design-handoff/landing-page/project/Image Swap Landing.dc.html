@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/tokens/radius.css">
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/tokens/base.css">
+  <link rel="stylesheet" href="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/styles.css">
+  <script src="_ds/image-swap-design-system-e3a0c44d-fb8a-4adf-b519-52db95b5fb87/_ds_bundle.js"></script>
+</helmet>
+
+<div style="min-height:100vh; background:hsl(210 20% 94%); font-family:var(--font-sans); color:hsl(var(--foreground)); padding:40px 0 64px;">
+
+  <!-- Pasek tytułowy makiety -->
+  <div style="max-width:1160px; margin:0 auto 8px; padding:0 24px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+    <div>
+      <div style="font:var(--font-weight-semibold) 12px/1.4 var(--font-sans); letter-spacing:0.1em; text-transform:uppercase; color:hsl(var(--muted-foreground)); margin-bottom:6px;">Image Swap · Landing page</div>
+      <h1 style="font:var(--font-weight-bold) 26px/1.15 var(--font-sans); letter-spacing:-0.02em; margin:0;">Trzy warianty hero do porównania</h1>
+    </div>
+    <p style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); margin:0; max-width:420px;">Każdy wariant ma w pełni działające demo — kliknij panel, aby wczytać obraz, i użyj strzałek. Wspólny dowód społeczny i stopka CTA na dole.</p>
+  </div>
+
+  <!-- ═══ WARIANT A ═══ -->
+  <section style="margin-top:36px;">
+    <div style="max-width:1160px; margin:0 auto; padding:0 24px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); letter-spacing:0.08em; text-transform:uppercase; color:hsl(var(--primary));">Wariant A</span>
+        <span style="width:4px; height:4px; border-radius:9999px; background:hsl(var(--muted-foreground)); opacity:0.5;"></span>
+        <span style="font:var(--font-weight-medium) 12px/1 var(--font-sans); color:hsl(var(--muted-foreground));">Rekomendowany start</span>
+      </div>
+      <h2 style="font:var(--font-weight-bold) 22px/1.2 var(--font-sans); margin:0;">Split klasyczny</h2>
+      <p style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); margin:6px 0 0; max-width:580px;">Tekst i CTA po lewej, działające demo po prawej. Czytelny, znany układ SaaS — bezpieczny i konwersyjny.</p>
+    </div>
+
+    <div style="max-width:1160px; margin:16px auto 0; background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:18px; box-shadow:var(--shadow-lg); overflow:hidden;">
+      <div style="display:flex; align-items:center; height:64px; padding:0 32px; border-bottom:1px solid hsl(var(--border));">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:30px; height:30px; border-radius:8px; background:hsl(var(--primary)); display:flex; align-items:center; justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19 H31"></path><path d="M27 15 L31 19 L27 23"></path><path d="M33 29 H17"></path><path d="M21 33 L17 29 L21 25"></path></svg>
+          </div>
+          <span style="font-size:17px; font-weight:700; letter-spacing:-0.02em;">Image<span style="color:hsl(var(--primary));"> Swap</span></span>
+        </div>
+        <div style="margin-left:auto; display:flex; align-items:center; gap:22px;">
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">Jak to działa</span>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">Opinie</span>
+          <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" size="sm" onClick="{{ pickA1 }}" hint-size="92px,32px">Wypróbuj</x-import>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:56px 48px;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 12px; border-radius:9999px; background:hsl(var(--primary) / 0.10); margin-bottom:20px;">
+            <span style="width:6px; height:6px; border-radius:9999px; background:hsl(var(--primary));"></span>
+            <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); color:hsl(var(--primary));">Działa w przeglądarce · bez rejestracji</span>
+          </div>
+          <h3 style="font:var(--font-weight-bold) 44px/1.05 var(--font-sans); letter-spacing:-0.025em; margin:0;">Porównuj obrazy<br>obok siebie.</h3>
+          <p style="font:var(--text-lg); line-height:1.55; color:hsl(var(--muted-foreground)); margin:18px 0 0; max-width:440px;">Wczytaj zdjęcie do dowolnego panelu i przenoś je między nimi jednym kliknięciem. Bez kont, bez instalacji — po prostu otwórz i porównuj.</p>
+          <div style="display:flex; align-items:center; gap:14px; margin-top:30px;">
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" size="lg" onClick="{{ pickA1 }}" hint-size="150px,44px">Wypróbuj teraz</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="ghost" size="lg" onClick="{{ pickA2 }}" hint-size="170px,44px">Wczytaj drugi obraz</x-import>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <dc-import name="DemoPanel" image="{{ a1 }}" label="Obraz 1" on-pick="{{ pickA1 }}" style="flex:1; max-width:230px;" hint-size="210px,158px"></dc-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.SwapControl" on-forward="{{ copyA12 }}" on-back="{{ copyA21 }}" disabled-forward="{{ noA1 }}" disabled-back="{{ noA2 }}" hint-size="44px,110px"></x-import>
+            <dc-import name="DemoPanel" image="{{ a2 }}" label="Obraz 2" on-pick="{{ pickA2 }}" style="flex:1; max-width:230px;" hint-size="210px,158px"></dc-import>
+          </div>
+          <div style="margin-top:22px; padding-top:18px; border-top:1px dashed hsl(var(--border));">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Badge" variant="secondary" hint-size="64px,22px">Wkrótce</x-import>
+              <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="128px,32px">✨ Ulepsz z AI</x-import>
+              <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="110px,32px">Usuń tło</x-import>
+              <span style="width:1px; height:18px; background:hsl(var(--border));"></span>
+              <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="92px,32px">Zapisz</x-import>
+              <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="92px,32px">Wczytaj</x-import>
+            </div>
+            <p style="font:var(--text-caption); color:hsl(var(--muted-foreground)); margin:12px 0 0;">Te akcje podepniemy później — transformacje AI oraz zapis i wczytywanie projektu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WARIANT B ═══ -->
+  <section style="margin-top:56px;">
+    <div style="max-width:1160px; margin:0 auto; padding:0 24px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); letter-spacing:0.08em; text-transform:uppercase; color:hsl(var(--primary));">Wariant B</span>
+      </div>
+      <h2 style="font:var(--font-weight-bold) 22px/1.2 var(--font-sans); margin:0;">Wyśrodkowany z akcentem</h2>
+      <p style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); margin:6px 0 0; max-width:580px;">Komunikat na środku, demo na karcie poniżej. Delikatny błękitny tint dodaje świeżości, nie rozprasza.</p>
+    </div>
+
+    <div style="max-width:1160px; margin:16px auto 0; background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:18px; box-shadow:var(--shadow-lg); overflow:hidden;">
+      <div style="display:flex; align-items:center; height:64px; padding:0 32px; border-bottom:1px solid hsl(221 60% 92%); background:hsl(221 83% 98%);">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:30px; height:30px; border-radius:8px; background:hsl(var(--primary)); display:flex; align-items:center; justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19 H31"></path><path d="M27 15 L31 19 L27 23"></path><path d="M33 29 H17"></path><path d="M21 33 L17 29 L21 25"></path></svg>
+          </div>
+          <span style="font-size:17px; font-weight:700; letter-spacing:-0.02em;">Image<span style="color:hsl(var(--primary));"> Swap</span></span>
+        </div>
+        <div style="margin-left:auto; display:flex; align-items:center; gap:22px;">
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">Jak to działa</span>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">Opinie</span>
+          <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" size="sm" onClick="{{ pickB1 }}" hint-size="92px,32px">Wypróbuj</x-import>
+        </div>
+      </div>
+      <div style="background:hsl(221 83% 98%); padding:64px 48px 72px; text-align:center;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 12px; border-radius:9999px; background:hsl(var(--card)); border:1px solid hsl(221 60% 90%); box-shadow:var(--shadow-xs); margin-bottom:22px;">
+          <span style="width:6px; height:6px; border-radius:9999px; background:hsl(var(--primary));"></span>
+          <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); color:hsl(var(--primary));">Lekkie narzędzie do porównywania obrazów</span>
+        </div>
+        <h3 style="font:var(--font-weight-bold) 50px/1.05 var(--font-sans); letter-spacing:-0.03em; margin:0 auto; max-width:680px;">Dwa panele.<br>Jedno spojrzenie.</h3>
+        <p style="font:var(--text-lg); line-height:1.55; color:hsl(var(--muted-foreground)); margin:18px auto 0; max-width:520px;">Najprostszy sposób, by zestawić dwa obrazy i przekopiować je w mgnieniu oka. Otwierasz i od razu pracujesz.</p>
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px;">
+          <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" size="lg" onClick="{{ pickB1 }}" hint-size="150px,44px">Wypróbuj teraz</x-import>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground));">Nie wymaga rejestracji</span>
+        </div>
+
+        <div style="max-width:560px; margin:44px auto 0; background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:16px; box-shadow:var(--shadow-xl); padding:28px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <dc-import name="DemoPanel" image="{{ b1 }}" label="Obraz 1" on-pick="{{ pickB1 }}" style="flex:1; max-width:230px;" hint-size="210px,158px"></dc-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.SwapControl" on-forward="{{ copyB12 }}" on-back="{{ copyB21 }}" disabled-forward="{{ noB1 }}" disabled-back="{{ noB2 }}" hint-size="44px,110px"></x-import>
+            <dc-import name="DemoPanel" image="{{ b2 }}" label="Obraz 2" on-pick="{{ pickB2 }}" style="flex:1; max-width:230px;" hint-size="210px,158px"></dc-import>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:20px;">
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Badge" variant="secondary" hint-size="64px,22px">Wkrótce</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="128px,32px">✨ Ulepsz z AI</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="92px,32px">Zapisz</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="92px,32px">Wczytaj</x-import>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WARIANT C ═══ -->
+  <section style="margin-top:56px;">
+    <div style="max-width:1160px; margin:0 auto; padding:0 24px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); letter-spacing:0.08em; text-transform:uppercase; color:hsl(var(--primary));">Wariant C</span>
+      </div>
+      <h2 style="font:var(--font-weight-bold) 22px/1.2 var(--font-sans); margin:0;">Odważny blok</h2>
+      <p style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); margin:6px 0 0; max-width:580px;">Pełen niebieski, biały tekst, demo na unoszącej się białej karcie. Największy kontrast i charakter.</p>
+    </div>
+
+    <div style="max-width:1160px; margin:16px auto 0; border-radius:18px; box-shadow:var(--shadow-lg); overflow:hidden; background:hsl(var(--primary));">
+      <div style="display:flex; align-items:center; height:64px; padding:0 32px; border-bottom:1px solid hsl(0 0% 100% / 0.15);">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:30px; height:30px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 48 48" fill="none" stroke="hsl(var(--primary))" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19 H31"></path><path d="M27 15 L31 19 L27 23"></path><path d="M33 29 H17"></path><path d="M21 33 L17 29 L21 25"></path></svg>
+          </div>
+          <span style="font-size:17px; font-weight:700; letter-spacing:-0.02em; color:#fff;">Image Swap</span>
+        </div>
+        <div style="margin-left:auto; display:flex; align-items:center; gap:22px;">
+          <span style="font:var(--text-body-sm); color:hsl(0 0% 100% / 0.8); cursor:pointer;">Jak to działa</span>
+          <span style="font:var(--text-body-sm); color:hsl(0 0% 100% / 0.8); cursor:pointer;">Opinie</span>
+          <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="secondary" size="sm" onClick="{{ pickC1 }}" hint-size="92px,32px">Wypróbuj</x-import>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:60px 48px;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 12px; border-radius:9999px; background:hsl(0 0% 100% / 0.15); margin-bottom:20px;">
+            <span style="width:6px; height:6px; border-radius:9999px; background:#fff;"></span>
+            <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); color:#fff;">Otwierasz → porównujesz → gotowe</span>
+          </div>
+          <h3 style="font:var(--font-weight-bold) 46px/1.05 var(--font-sans); letter-spacing:-0.025em; margin:0; color:#fff;">Wczytaj.<br>Porównaj.<br>Przekopiuj.</h3>
+          <p style="font:var(--text-lg); line-height:1.55; color:hsl(0 0% 100% / 0.85); margin:18px 0 0; max-width:420px;">Lekkie narzędzie do porównywania obrazów — działa od razu w przeglądarce, bez kont i bez instalacji.</p>
+          <div style="display:flex; align-items:center; gap:14px; margin-top:30px;">
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="secondary" size="lg" onClick="{{ pickC1 }}" hint-size="150px,44px">Wypróbuj teraz</x-import>
+            <span style="font:var(--text-body-sm); color:hsl(0 0% 100% / 0.8);">Bez rejestracji</span>
+          </div>
+        </div>
+        <div style="background:hsl(var(--card)); border-radius:16px; box-shadow:var(--shadow-2xl); padding:28px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <dc-import name="DemoPanel" image="{{ c1 }}" label="Obraz 1" on-pick="{{ pickC1 }}" style="flex:1; max-width:230px;" hint-size="210px,158px"></dc-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.SwapControl" on-forward="{{ copyC12 }}" on-back="{{ copyC21 }}" disabled-forward="{{ noC1 }}" disabled-back="{{ noC2 }}" hint-size="44px,110px"></x-import>
+            <dc-import name="DemoPanel" image="{{ c2 }}" label="Obraz 2" on-pick="{{ pickC2 }}" style="flex:1; max-width:230px;" hint-size="210px,158px"></dc-import>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:20px; padding-top:18px; border-top:1px dashed hsl(var(--border));">
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Badge" variant="secondary" hint-size="64px,22px">Wkrótce</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="128px,32px">✨ Ulepsz z AI</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="92px,32px">Zapisz</x-import>
+            <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="outline" size="sm" onClick="{{ soon }}" hint-size="92px,32px">Wczytaj</x-import>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WSPÓLNA CZĘŚĆ ═══ -->
+  <section style="margin-top:64px;">
+    <div style="max-width:1160px; margin:0 auto; padding:0 24px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="font:var(--font-weight-semibold) 12px/1 var(--font-sans); letter-spacing:0.08em; text-transform:uppercase; color:hsl(var(--muted-foreground));">Wspólna część strony</span>
+      </div>
+      <h2 style="font:var(--font-weight-bold) 22px/1.2 var(--font-sans); margin:0;">Dowód społeczny + stopka CTA</h2>
+      <p style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); margin:6px 0 0; max-width:580px;">Te dwie sekcje są wspólne dla każdego wariantu hero i pojawiają się pod nim.</p>
+    </div>
+
+    <div style="max-width:1160px; margin:16px auto 0; background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:18px; box-shadow:var(--shadow-lg); overflow:hidden;">
+
+      <div style="padding:36px 48px; border-bottom:1px solid hsl(var(--border)); text-align:center;">
+        <p style="font:var(--text-caption); letter-spacing:0.08em; text-transform:uppercase; color:hsl(var(--muted-foreground)); margin:0 0 18px;">Używane w codziennej pracy zespołów produktowych</p>
+        <div style="display:flex; align-items:center; justify-content:center; gap:44px; flex-wrap:wrap; opacity:0.55;">
+          <span style="font:var(--font-weight-bold) 19px/1 var(--font-sans); letter-spacing:-0.02em;">Pixelary</span>
+          <span style="font:var(--font-weight-bold) 19px/1 var(--font-sans); letter-spacing:-0.02em;">Studio Nórd</span>
+          <span style="font:var(--font-weight-bold) 19px/1 var(--font-sans); letter-spacing:-0.02em;">Frontda</span>
+          <span style="font:var(--font-weight-bold) 19px/1 var(--font-sans); letter-spacing:-0.02em;">Kowalski Foto</span>
+          <span style="font:var(--font-weight-bold) 19px/1 var(--font-sans); letter-spacing:-0.02em;">DevHouse</span>
+        </div>
+      </div>
+
+      <div style="padding:56px 48px;">
+        <div style="text-align:center; margin-bottom:40px;">
+          <h3 style="font:var(--font-weight-bold) 34px/1.15 var(--font-sans); letter-spacing:-0.02em; margin:0;">Prosto, szybko, bez tarcia</h3>
+          <p style="font:var(--text-lg); color:hsl(var(--muted-foreground)); margin:12px auto 0; max-width:520px;">Tak o pracy z obrazami mówią osoby, które korzystają z Image Swap na co dzień.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+          <div style="background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:14px; box-shadow:var(--shadow-sm); padding:28px;">
+            <div style="display:flex; gap:3px; margin-bottom:14px;">{{ stars }}</div>
+            <p style="font:var(--text-base); line-height:1.6; margin:0;">„Zestawiam wersje grafiki w sekundę i od razu wiem, która jest lepsza. Zero zbędnych kroków."</p>
+            <div style="display:flex; align-items:center; gap:12px; margin-top:22px;">
+              <div style="width:38px; height:38px; border-radius:9999px; background:hsl(var(--chart-1) / 0.15); color:hsl(var(--chart-1)); display:flex; align-items:center; justify-content:center; font:var(--font-weight-semibold) 14px/1 var(--font-sans);">MK</div>
+              <div>
+                <div style="font:var(--font-weight-semibold) 14px/1.2 var(--font-sans);">Marta K.</div>
+                <div style="font:var(--text-caption); color:hsl(var(--muted-foreground));">Projektantka UI</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:14px; box-shadow:var(--shadow-sm); padding:28px;">
+            <div style="display:flex; gap:3px; margin-bottom:14px;">{{ stars }}</div>
+            <p style="font:var(--text-base); line-height:1.6; margin:0;">„Wczytuję dwa zrzuty ekranu, kopiuję strzałką i mam porównanie. Używam codziennie do QA."</p>
+            <div style="display:flex; align-items:center; gap:12px; margin-top:22px;">
+              <div style="width:38px; height:38px; border-radius:9999px; background:hsl(var(--chart-2) / 0.15); color:hsl(var(--chart-2)); display:flex; align-items:center; justify-content:center; font:var(--font-weight-semibold) 14px/1 var(--font-sans);">TP</div>
+              <div>
+                <div style="font:var(--font-weight-semibold) 14px/1.2 var(--font-sans);">Tomek P.</div>
+                <div style="font:var(--text-caption); color:hsl(var(--muted-foreground));">Front-end developer</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:14px; box-shadow:var(--shadow-sm); padding:28px;">
+            <div style="display:flex; gap:3px; margin-bottom:14px;">{{ stars }}</div>
+            <p style="font:var(--text-base); line-height:1.6; margin:0;">„Nic nie instaluję, otwieram w przeglądarce i działa. Dokładnie tak proste, jak powinno być."</p>
+            <div style="display:flex; align-items:center; gap:12px; margin-top:22px;">
+              <div style="width:38px; height:38px; border-radius:9999px; background:hsl(var(--chart-4) / 0.15); color:hsl(var(--chart-4)); display:flex; align-items:center; justify-content:center; font:var(--font-weight-semibold) 14px/1 var(--font-sans);">AW</div>
+              <div>
+                <div style="font:var(--font-weight-semibold) 14px/1.2 var(--font-sans);">Ania W.</div>
+                <div style="font:var(--text-caption); color:hsl(var(--muted-foreground));">Fotografka</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:hsl(var(--primary)); padding:64px 48px; text-align:center;">
+        <h3 style="font:var(--font-weight-bold) 38px/1.1 var(--font-sans); letter-spacing:-0.02em; margin:0; color:#fff;">Gotowy, żeby porównać swoje obrazy?</h3>
+        <p style="font:var(--text-lg); color:hsl(0 0% 100% / 0.85); margin:14px auto 0; max-width:480px;">Otwórz Image Swap i wczytaj pierwszy obraz — zajmie Ci to mniej niż minutę.</p>
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px;">
+          <x-import component-from-global-scope="ImageSwapDesignSystem_e3a0c4.Button" variant="secondary" size="lg" onClick="{{ pickA1 }}" hint-size="150px,44px">Wypróbuj teraz</x-import>
+          <span style="font:var(--text-body-sm); color:hsl(0 0% 100% / 0.8);">Działa w przeglądarce · bez rejestracji</span>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; padding:26px 48px; border-top:1px solid hsl(var(--border));">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:26px; height:26px; border-radius:7px; background:hsl(var(--primary)); display:flex; align-items:center; justify-content:center;">
+            <svg width="17" height="17" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19 H31"></path><path d="M27 15 L31 19 L27 23"></path><path d="M33 29 H17"></path><path d="M21 33 L17 29 L21 25"></path></svg>
+          </div>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground));">© 2026 Image Swap</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:24px;">
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">Prywatność</span>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">GitHub</span>
+          <span style="font:var(--text-body-sm); color:hsl(var(--muted-foreground)); cursor:pointer;">Kontakt</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { a1: null, a2: null, b1: null, b2: null, c1: null, c2: null };
+
+  componentDidMount() {
+    const inp = document.createElement('input');
+    inp.type = 'file';
+    inp.accept = 'image/*';
+    inp.style.display = 'none';
+    inp.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          if (this._target) this.setState({ [this._target]: ev.target.result });
+        };
+        reader.readAsDataURL(file);
+      }
+      e.target.value = '';
+    });
+    document.body.appendChild(inp);
+    this._input = inp;
+  }
+
+  componentWillUnmount() {
+    if (this._input) this._input.remove();
+  }
+
+  pick(key) {
+    this._target = key;
+    if (this._input) this._input.click();
+  }
+
+  copy(from, to) {
+    const v = this.state[from];
+    if (v) this.setState({ [to]: v });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const star = React.createElement(
+      'svg',
+      { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'hsl(var(--warning))', stroke: 'none' },
+      React.createElement('path', { d: 'M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z' })
+    );
+    const stars = React.createElement('span', { style: { display: 'flex', gap: '3px' } },
+      star, star, star, star, star);
+
+    return {
+      a1: s.a1, a2: s.a2, b1: s.b1, b2: s.b2, c1: s.c1, c2: s.c2,
+      noA1: !s.a1, noA2: !s.a2, noB1: !s.b1, noB2: !s.b2, noC1: !s.c1, noC2: !s.c2,
+      pickA1: () => this.pick('a1'), pickA2: () => this.pick('a2'),
+      pickB1: () => this.pick('b1'), pickB2: () => this.pick('b2'),
+      pickC1: () => this.pick('c1'), pickC2: () => this.pick('c2'),
+      copyA12: () => this.copy('a1', 'a2'), copyA21: () => this.copy('a2', 'a1'),
+      copyB12: () => this.copy('b1', 'b2'), copyB21: () => this.copy('b2', 'b1'),
+      copyC12: () => this.copy('c1', 'c2'), copyC21: () => this.copy('c2', 'c1'),
+      soon: () => {},
+      stars,
+    };
+  }
+}
+</script>
+</body>
+</html>
